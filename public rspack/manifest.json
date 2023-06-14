@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Public Rspack",
+    "description": "This is a Public rspack edit by OsmyPractice Rspack",
+    "uuid": "uuid",
+    "version": [
+      1,
+      1,
+      5
+    ],
+    "min_engine_version": [
+      1,
+      16,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "uuid",
+      "version": [
+        1,
+        0,
+        2
+      ]
+    }
+  ]
+}

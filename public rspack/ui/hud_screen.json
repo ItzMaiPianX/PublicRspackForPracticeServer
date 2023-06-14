@@ -1,0 +1,128 @@
+{
+  "chat_label": {
+    "type": "label",
+    "line_padding": "($chat_line_spacing + 1)",
+    "font_type": "MinecraftSeven"
+  },
+  "hud_tip_text": {
+    "offset": [
+      0,
+      -56
+    ],
+    "texture": "textures/ui/cps"
+  },
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": {
+          "rules_toast@hud.rules_toast": {}
+        }
+      }
+    ]
+  },
+  "rules_toast": {
+    "type": "panel",
+    "$display_time": 3.0,
+    "$transition_in_time": 0.15,
+    "$transition_out_time": 0.15,
+    "$alpha_anims": [
+      "@hud.toast_label_anim"
+    ],
+    "layer": 50,
+    "bindings": [
+      {
+        "binding_name": "#objective_sidebar_name",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not(#objective_sidebar_name = 'lo go'))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "texture": {
+          "type": "image",
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "offset": [
+            250,
+            2
+          ],
+          "size": [
+            "100%c + 6px",
+            "100%c + 13px"
+          ],
+          "texture": "textures/ui/purpleBorder",
+          "anims": "$alpha_anims",
+          "layer": 50,
+          "controls": [
+            {
+              "label@hud.toast_label": {
+                "type": "label",
+                "size": [
+                  200,
+                  "default"
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "text": " §gWelcome to OsmyPractice! Please read the rules on our Discord.",
+                "layer": 51,
+                "text_alignment": "center",
+                "font_type": "MinecraftTen",
+                "bindings": [
+                  {
+                    "binding_name": "#toast_title"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "toast_label_anim": {
+    "anim_type": "wait",
+    "duration": 6,
+    "next": "@hud.toast_label_anim_start"
+  },
+  "toast_label_anim_start": {
+    "anim_type": "offset",
+    "easing": "spring",
+    "duration": 1,
+    "from": [
+      100,
+      2
+    ],
+    "to": [
+      -2,
+      2
+    ],
+    "next": "@hud.toast_label_anim_wait"
+  },
+  "toast_label_anim_wait": {
+    "anim_type": "wait",
+    "duration": 6,
+    "next": "@hud.toast_label_anim_end"
+  },
+  "toast_label_anim_end": {
+    "anim_type": "offset",
+    "easing": "in_sine",
+    "duration": 1,
+    "to": [
+      1500,
+      2
+    ],
+    "from": [
+      -2,
+      2
+    ],
+    "destroy_at_end": "rules_toast"
+  }
+}
